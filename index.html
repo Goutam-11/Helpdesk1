@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="{{ url_for('static', filename='assets/img/E.png') }}" type="image/png">
+    <!--bootstrapcss-->
+    <link rel="stylesheet" href="https://webchat-styler-css.botpress.app/prod/aff09323-fe38-4630-9560-e2be1b5f36ec/v92491/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"
+        integrity="sha384-nU14brUcp6StFntEOOEBvcJm4huWjB0OcIeQ3fltAfSmuZFrkAif0T+UtNGlKKQv" crossorigin="anonymous">
+    <!--bcss end-->
+
+    <title>HelpDesk</title>
+    <!-- Ion Icons Js -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <!-- JS -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style2.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/sty.css') }}" />
+
+</head>
+
+<body class = "night-mode">
+    <!-- Menu -->
+    <div class="menu">
+        <div class="container flex">
+            <!-- Mobile Button -->
+            <div class="mobile-btn">
+                <ion-icon name="grid"></ion-icon>
+            </div>
+            <div class="logo">
+                <img id="logo" src="{{ url_for('static', filename='assets/img/a.png') }}" alt="" />
+            </div>
+
+            <ul class="nav">
+                {% if logged_in %}
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="#why-us">Features</a></li>
+                <li class="nav-item"><a href="/contacts">Contact Us</a></li>
+                <li class="nav-item"><a href="/logout">Logout</a></li>
+                <li class="nav-item">
+                    <img id="mode-toggle" src="{{url_for('static', filename='assets/img/night.png')}}" alt="Night Mode"
+                        width="40" height="30" />
+                </li>
+
+                {% else %}
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="#why-us">Features</a></li>
+                <li class="nav-item"><a href="/contacts">Contact Us</a></li>
+                <li class="nav-item"><a href="/login">Register</a></li>
+                <li class="nav-item">
+                    <img id="mode-toggle" src="{{ url_for('static', filename='assets/img/night.png')}}" alt="Night Mode"
+                        width="40" height="30" />
+                </li>
+
+                {% endif %}
+            </ul>
+            {% if logged_in %}
+            <a href="/logout" class="btn">Logout</a></li>
+            {% else %}
+            <a href="/login" class="btn">Register</a>
+            {% endif %}
+        </div>
+    </div>
+    <!-- End Menu -->
+    
+    <!--bootstrap slider-->
+    <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ url_for('static', filename='assets//img/1.jpeg') }}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='assets//img/2.jpeg') }}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='assets/img/3.jpeg') }}" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!--bootstrap slider end-->
+
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container flex">
+            <div class="text">
+                <h1 class="mb">
+                    One Stop solution<br />
+                    <span>HELPDESK</span> At home.
+                </h1>
+
+                <p class="mb">
+                    Specially designed for your comfort.You can create and manipulate your government documents ,
+                    schemes .Also get your daily dose of new updates from government. </p>
+
+                <a href="/login" class="btn mt">Let's GO</a>
+            </div>
+
+            <div class="slides">
+                <img id="l" src="{{ url_for('static', filename='assets/img/a.png') }}" alt="Image0" />
+            </div>
+            <div class="slides">
+                <img src="{{ url_for('static', filename='assets/img/bot.png')}}" alt="Image 1">
+            </div>
+
+            <div class="slides">
+                <img src="{{ url_for('static', filename='assets/img/news.png')}}" alt="Image 2">
+            </div>
+
+            <div class="slides">
+                <img src="{{ url_for('static', filename='assets/img/paper.png')}}" alt="Image 3">
+            </div>
+
+            <div class="slides">
+                <img src="{{ url_for('static', filename='assets/img/update.png')}}" alt="Image 4">
+            </div>
+            <div class="slides">
+                <img src="{{ url_for('static', filename='assets/img/doc.png')}}" alt="Image 5">
+            </div>
+
+
+
+
+
+            <script>
+                var slideIndex = 0;
+                showSlides();
+
+                function showSlides() {
+                    var i;
+                    var slides = document.getElementsByClassName("slides");
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    slideIndex++;
+                    if (slideIndex > slides.length) { slideIndex = 1 }
+                    slides[slideIndex - 1].style.display = "block";
+                    setTimeout(showSlides, 10000); // Change image every 10 seconds
+                }
+            </script>
+        </div>
+        </div>
+    </header>
+    <!-- End Header -->
+    <br>
+    <br>
+    <!--doc slider--><!-- carousel -->
+
+    <div class="slider">
+        <!-- list Items -->
+        <div class="list">
+            <div class="item active">
+                <img src="{{ url_for('static', filename='assets/img/aadhar.png')}}">
+                <div class="content">
+                    <p>Document Type</p>
+                    <h2>Aadhar Card</h2>
+                    <p>
+                        The Aadhaar card is a unique 12-digit identification number issued to all residents of India by
+                        the Unique Identification Authority of India (UIDAI). It serves as proof of identity and address
+                        for various services and transactions in India. It includes demographic and biometric
+                        information of the individual.
+                        <br> <button class="btn"><a href="https://uidai.gov.in/en/" class="sb">Go</a></button>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='assets/img/pan.jpeg')}}">
+                <div class="content">
+                    <p>Document Type</p>
+                    <h2>Pan Card</h2>
+                    <p>
+                        The Pan Card is a unique identification number issued by the Income Tax Department of India to
+                        individuals and entities. It is primarily used for tax purposes and serves as a proof of
+                        identification. The Pan Card contains a 10-character alphanumeric code that is unique to each
+                        cardholder.
+                        <br> <button class="btn"><a href="https://www.pan.utiitsl.com/" class="sb">Go</a></button>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='assets/img/dr.jpeg')}}">
+                <div class="content">
+                    <p>Document Type</p>
+                    <h2>Driving license</h2>
+                    <p>
+                        The driving license is a legal document that permits an individual to drive a motor vehicle on
+                        public roads. It serves as proof that the holder has undergone the necessary training and
+                        testing to demonstrate their ability to operate a vehicle safely. Driving licenses are issued by
+                        the respective government authorities and typically contain information such as the driver's
+                        name, photo, license number, and categories of vehicles they are authorized to drive.
+                        <br> <button class="btn"><a href="https://parivahan.gov.in/parivahan/"
+                                class="sb">Go</a></button>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='assets/img/mc.jpeg')}}">
+                <div class="content">
+                    <p>Document Type</p>
+                    <h2>Marriage Certificate</h2>
+                    <p>
+                        For Rajasthan only.
+                        information about driving licence
+                        The Marriage Certificate is a legal document that serves as proof of marriage between two
+                        individuals. It is essential for legal and official purposes, especially concerning marital
+                        rights, benefits, and obligations. Marriage certificates are issued by the relevant government
+                        authority and typically include details such as the names of the spouses, date and place of
+                        marriage, and signatures of witnesses.
+                        <br> <button class="btn"><a
+                                href="https://pehchan.raj.nic.in/pehchan3/P_MarriageRegistration.aspx"
+                                class="sb">Go</a></button>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='assets/img/1.jpeg')}}">
+                <div class="content">
+                    <p>Document Type</p>
+                    <h2>Voter ID Card</h2>
+                    <p>
+                        The Voter ID Card, also known as the Elector's Photo Identity Card (EPIC), is an identification
+                        card issued by the Election Commission of India to eligible voters. It serves as proof of
+                        identity and eligibility to vote in elections. The Voter ID Card contains personal details of
+                        the voter such as name, address, photograph, and a unique identification number. It is an
+                        essential document for exercising the right to vote in democratic elections.
+                        <br> <button class="btn"><a href="https://voters.eci.gov.in/" class="sb">Go</a></button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- button arrows -->
+        <div class="arrows">
+            <button id="prev"><</button>
+                    <button id="next">></button>
+        </div>
+        <!-- thumbnail -->
+        <div class="thumbnail">
+            <div class="item active">
+                <img src="{{ url_for('static', filename='assets/img/aadhar.png')}}">
+                <div class="content">
+                    Aadhar card
+                </div>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='assets/img/pan.jpeg')}}">
+                <div class="content">
+                    Pan card
+                </div>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='assets/img/dr.jpeg')}}">
+                <div class="content">
+                    Driving license
+                </div>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='assets/img/mc.jpeg')}}">
+                <div class="content">
+                    Marriage certificate
+                </div>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='assets/img/1.jpeg')}}">
+                <div class="content">
+                    Voter ID
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--doc slider end-->
+
+
+
+    <!-- Why Us -->
+    <div class="section" id="why-us">
+        <div class="container flex">
+            <div class="text">
+                <h2 class="primary mb">Why Choose Us?</h2>
+                <h3 class="secondary mb">Better UI</h3>
+                <p class="tertiary">
+                    This website is all you need as we have all the information you need.You can surely check it out.You
+                    will find a better UI for your convenience.
+                </p>
+                <br />
+                <h3 class="secondary mb">AI chat bot </h3>
+                <p class="tertiary">We have better interface and are developing daily to be better for the users and
+                    have ai bot for you if you have any issues to start.
+
+
+                </p>
+            </div>
+            <div class="visual">
+                <img src="{{ url_for('static', filename='assets/img/upd.png')}}" alt="" />
+            </div>
+        </div>
+    </div>
+    <!-- End Why Us -->
+
+    <!-- Explore -->
+    <div class="section" id="explore">
+        <div class="container flex">
+            <div class="visual">
+                <img src="{{ url_for('static', filename='assets/img/doc.png')}}" alt="" />
+            </div>
+            <div class="text">
+                <h2 class="primary mb">
+                    Explore <br />
+
+                </h2>
+                <p class="tertiary mb">
+                    Login to our website and get started .<br>
+                    By clicking on the get started button you will be taken to start your journey from here.
+                    .<br>
+                    BEST OF LUCK.
+                </p>
+
+
+                <a href="/login" class="btn mt">Get Started Now</a>
+            </div>
+        </div>
+    </div>
+    <!-- End Explore -->
+
+    <!-- Trainer -->
+    <div class="section" id="trainer">
+        <h2 class="primary mb">Our Team</h2>
+        <div class="container flex images-container">
+            <div class="trainer">
+                <img src="{{ url_for('static', filename='assets/img/goutam.jpg')}}" alt="" width="150" height="150" />
+                <h3 class="secondary mb">Goutam Sharma</h3>
+                <p class="tertiary mb">
+                    Team Leader
+                </p>
+
+                <a href="#" class="btn-2">
+                    <ion-icon name="arrow-redo-circle-outline"></ion-icon>
+                </a>
+            </div>
+
+            <div class="trainer">
+                <img src="{{ url_for('static', filename='assets/img/divyansh.jpg')}}" alt="" width="150" height="150" />
+                <h3 class="secondary mb">Divyansh Kumar</h3>
+                <p class="tertiary mb">
+                    Team member
+                </p>
+
+                <a href="#" class="btn-2">
+                    <ion-icon name="arrow-redo-circle-outline"></ion-icon>
+                </a>
+            </div>
+
+            <div class="trainer">
+                <img src="{{ url_for('static', filename='assets/img/chhayank.jpg')}}" alt="" width="150" height="150" />
+                <h3 class="secondary mb">Chhayank</h3>
+                <p class="tertiary mb">
+                    Team member
+                </p>
+
+                <a href="#" class="btn-2">
+                    <ion-icon name="arrow-redo-circle-outline"></ion-icon>
+                </a>
+            </div>
+            <div class="trainer">
+                <img src="{{ url_for('static', filename='assets/img/harsh.jpg')}}" alt="" width="150" height="150" />
+                <h3 class="secondary mb">Harsh Yadav</h3>
+                <p class="tertiary mb">
+                    Team member
+                </p>
+
+                <a href="#" class="btn-2">
+                    <ion-icon name="arrow-redo-circle-outline"></ion-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- End Trainer -->
+
+    <!-- Testimonial -->
+    <div class="section" id="testimonial">
+        <div class="container flex">
+            <div class="text">
+                <h2 class="primary">
+                    This is what you get <br />
+                    From our site.
+                </h2>
+
+                <br />
+                <br />
+                <br />
+
+                <div class="client">
+                    <img src="{{ url_for('static', filename='assets/img/doc.png')}}" alt="" />
+                    <h2 class="secondary">Excellent </h2>
+                    <p class="tertiary">
+                        <br />
+
+                        <br>
+                        <br> We provide everything you expect from us. We have a good UI and we have a good chat bot. We
+                        have a good team. We have a good support. You can create government docs ,get updated about
+                        schemes and news of government.
+                    </p>
+                </div>
+            </div>
+            <div class="visual">
+                <img src="{{ url_for('static', filename='assets/img/com.png')}}" alt="" />
+            </div>
+        </div>
+    </div>
+    <!-- End Testimonial -->
+
+    <!-- Discount -->
+    <div class="section" id="discount">
+        <div class="container flex">
+            <div class="visual">
+                <img src="{{ url_for('static', filename='assets/img/paper.png')}}" alt="" />
+            </div>
+            <div class="text">
+                <h2 class="primary mb">
+                    Connect with us for more <br />
+                    information.
+                </h2>
+
+                <p class="tertiary mb">
+                    One stop for all your needs.Let it be government documents , schemes and news, you get updated about
+                    everything.
+
+                </p>
+
+                <a href="/login" class="btn bt">Register</a>
+            </div>
+        </div>
+    </div>
+    <!-- End Discount -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container flex">
+            <div class="address">
+                <h3>Address</h3>
+                <p>Poornima University,Vidhani, opp JECRC University, Sitapura, Jaipur</p>
+            </div>
+            <div class="contact">
+                <h3>Contact</h3>
+                <p>Phone: 123-456-7890</p>
+                <p>Email: 2023csgoutam15181@gmail.com</p>
+            </div>
+            <div class="email-form">
+                <h3 id="hi">Send us an Email</h3>
+                <form action="#" name="google-sheet">
+                    <input type="text" name="name" placeholder="Your Name" required />
+                    <input type="email" name="Email" placeholder="Your Email" required />
+                    <input type="tel" name="phone" placeholder="Your Phone Number" required />
+                    <textarea name="issue" rows="4" placeholder="Describe your issue" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    <footer class="footer">
+        <div class="container flex">
+            <p class="tertiaryf">
+                &copy; HelpDesk. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- End Footer -->
+    <!--bootstrap js-->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycby_YTwvzogXYxJL98kxM194rwaAYBE38DsCxbn8ienYnDH01dw8MbX9LUKEUUx5UH5qcw/exec';
+         const form = document.forms['google-sheet'];
+         
+         form.addEventListener('submit', e => {
+             e.preventDefault();
+             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                 .then(response => {
+                     if (response.ok) {
+                         alert("We received your issue.We will try to resolve it.");
+                        
+                     } else {
+                         alert("Failed. Please try again.");
+                     }
+                 })
+                 .catch(error => console.error('Error!', error.message));
+         });
+     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <!--end-->
+
+    <script src="{{ url_for('static', filename='assets/js/script.js')}}"></script>
+    <script src="{{ url_for('static', filename='assets/js/app.js')}}"></script>
+
+<!-- Botpress embed script -->
+<script>
+     window.addEventListener('load', function() {
+        // Load Botpress embed script
+        var botpressScript = document.createElement('script');
+        botpressScript.src = 'https://cdn.botpress.cloud/webchat/v1/inject.js';
+        document.body.appendChild(botpressScript);
+    });
+
+    </script>
+  <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+  <script>
+    window.botpressWebChat.init({
+        "composerPlaceholder": "Chat with helpdesk",
+        "botConversationDescription": "Helpdesk bot ",
+        "botId": "45bed248-4f10-4203-ae0c-87e52a350aae",
+        "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+        "messagingUrl": "https://messaging.botpress.cloud",
+        "clientId": "45bed248-4f10-4203-ae0c-87e52a350aae",
+        "webhookId": "05e6ca83-fce0-4ac5-9402-a945ffb8182b",
+        "lazySocket": true,
+        "themeName": "prism",
+        "botName": "Helpdesk",
+        "avatarUrl": "https://cdn-icons-png.flaticon.com/512/4712/4712009.png",
+        "stylesheet": "https://webchat-styler-css.botpress.app/prod/aff09323-fe38-4630-9560-e2be1b5f36ec/v33309/style.css",
+        "frontendVersion": "v1",
+        "useSessionStorage": true,
+        "showBotInfoPage": true,
+        "theme": "prism",
+        "themeColor": "#2563eb"
+    });
+  </script>
+</body>
+
+</html>
